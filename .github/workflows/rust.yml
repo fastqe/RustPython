@@ -19,8 +19,6 @@ jobs:
     - name: Verify Rust
       run: rustc --version
 
-    - name: Add emscripten to rustc
-      run: rustup target add  wasm32-unknown-emscripten
       
     - uses: actions/checkout@v3
     - name: Verify ls 
@@ -42,6 +40,8 @@ jobs:
     - uses: actions/setup-node@v4
     - uses: mwilliamson/setup-wabt-action@v3
       with: { wabt-version: "1.0.30" }
+    - name: Add emscripten to rustc
+      run: rustup target add  wasm32-unknown-emscripten
     - name: Build
       run: cargo build --verbose --target wasm32-unknown-emscripten --release --manifest-path ./wasm/lib/Cargo.toml
       
