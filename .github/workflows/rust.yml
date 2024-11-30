@@ -38,9 +38,9 @@ jobs:
     - name: Verify Rust
       run: rustc --version
     - name: Add emscripten to rustc
-      run: rustup target add  wasm32-unknown-emscripten
+      run: rustup target add  wasm32-unknown-unknown
     - name: Build
-      run: cargo build --verbose --target wasm32-unknown-emscripten --release --manifest-path ./wasm/lib/Cargo.toml
+      run: cargo build --verbose --target wasm32-unknown-unknown --release --manifest-path ./wasm/lib/Cargo.toml
       
     - name: Gather target outputs 
       run: mkdir biowasm && cp ./target/wasm32-unknown-emscripten/release/fastqe.js biowasm && cp ./target/wasm32-unknown-emscripten/release/fastqe.wasm biowasm && cp ./target/wasm32-unknown-emscripten/release/deps/fastqe.data biowasm
